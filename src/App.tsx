@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import './App.css'
-import { Tracklist } from './components'
-import { Song } from './types/song.type';
+import { Track } from './types/track.type';
+import { Playlist, Tracklist } from './components';
+import { PlaylistDetails } from './types/playlist.type';
 
 
   
 
 
 // Todo: hardcoded to be removed.
-const hardcodedSong: Song[] = [
+const hardcodedSongs: Track[] = [
     {
          id: 'id',
          name: 'name',
@@ -32,11 +33,18 @@ const hardcodedSong: Song[] = [
 function App() {
 
 
-const [songs] = useState<Song[]>(hardcodedSong);
-
+const [tracks] = useState<Track[]>(hardcodedSongs);
+const [playlist] = useState<PlaylistDetails>({
+  title: 'Playlist Title',
+  tracks: hardcodedSongs
+})
   return (
     <>
-      <Tracklist songs={songs}/>
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+      <Tracklist tracks={tracks}/>
+      <Playlist playlist={playlist} />
+      </div>
+      <p className="text-center text-gray-400">Photo by <a className="underline underline-offset-4" href="https://unsplash.com/@marcelalaskoski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Marcela Laskoski</a> on <a className="underline underline-offset-4" href="https://unsplash.com/photos/selective-focus-silhouette-photography-of-man-playing-red-lighted-dj-terminal-YrtFlrLo2DQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
     </>
   )
 }
