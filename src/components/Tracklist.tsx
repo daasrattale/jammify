@@ -28,13 +28,13 @@ export const Tracklist = ({ setPlaylist, tracks }: TracklistProps) => {
 
      return <>
           <div className="m-5 p-5 border rounded-xl border-gray-700 bg-black/70">
-               <h1 className="text-xl mb-10">Results</h1>
+               <h1 className="text-xl mb-7">Results</h1>
                {
                     tracks.map(track =>
                          <Track
                               key={track.id}
                               track={track}
-                              actionButton={<button onClick={() => addToPlaylist(track)} className="ml-auto px-2 text-blue-400">+</button>}
+                              actionButton={<button onClick={() => addToPlaylist(track)} className="ml-auto px-2 text-green-300 text-2xl hover:bg-gray-800/70 rounded">+</button>}
                          />
                     )
                }

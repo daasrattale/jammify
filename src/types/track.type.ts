@@ -3,4 +3,5 @@ export type TrackDetails = {
      name: string;
      artist: string;
      album: string;
+     uri: string;
 }

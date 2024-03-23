@@ -11,26 +11,29 @@ const hardcodedSongs: TrackDetails[] = [
     id: 'id',
     name: 'name',
     artist: 'artist',
-    album: 'album'
+    album: 'album',
+    uri: 'https://open.spotify.com/track/0y1QJc3SJVPKJ1OvFmFqe6?si=bbdd80f36d04433c'
   },
   {
     id: 'id2',
     name: 'name2',
     artist: 'artist2',
-    album: 'album2'
+    album: 'album2',
+    uri: 'https://open.spotify.com/track/0y1QJc3SJVPKJ1OvFmFqe6?si=bbdd80f36d04433c'
   },
   {
     id: 'id3',
     name: 'name3',
     artist: 'artist3',
-    album: 'album3'
+    album: 'album3',
+    uri: 'https://open.spotify.com/track/0y1QJc3SJVPKJ1OvFmFqe6?si=bbdd80f36d04433c'
   }
 ];
 
 function App() {
 
   const [tracks] = useState<TrackDetails[]>(hardcodedSongs);
-  const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: '', tracks: [] });
+  const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: 'sss', tracks: [] });
 
   return (
     <>
