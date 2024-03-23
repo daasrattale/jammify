@@ -30,13 +30,12 @@ const hardcodedSongs: TrackDetails[] = [
 ];
 
 export const Jammer = () => {
-     const [tracks] = useState<TrackDetails[]>(hardcodedSongs);
+     const [tracks, setTracks] = useState<TrackDetails[]>(hardcodedSongs);
      const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: '', tracks: [] });
-     const [searchCriteria, setSearchCriteria] = useState<string>('');
 
      return (
           <>
-               <SearchBar setSearchCriteria={setSearchCriteria} />
+               <SearchBar setTracks={setTracks} />
                <div className="grid grid-cols-1 lg:grid-cols-2">
                     <SearchResults tracks={tracks} setPlaylist={setPlaylist} />
                     <Playlist playlist={playlist} setPlaylist={setPlaylist} />
