@@ -30,7 +30,7 @@ const hardcodedSongs: TrackDetails[] = [
 function App() {
 
   const [tracks] = useState<TrackDetails[]>(hardcodedSongs);
-  const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: 'Playlist Title', tracks: [] });
+  const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: '', tracks: [] });
 
   return (
     <>
