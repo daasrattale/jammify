@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './App.css'
 import { TrackDetails } from './types/track.type';
-import { Playlist, Tracklist } from './components';
+import { Playlist, SearchResults } from './components';
 import { PlaylistDetails } from './types/playlist.type';
+import { SearchBar } from './components/SearchBar';
 
 
 // Todo: hardcoded to be removed.
@@ -33,13 +34,15 @@ const hardcodedSongs: TrackDetails[] = [
 function App() {
 
   const [tracks] = useState<TrackDetails[]>(hardcodedSongs);
-  const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: 'sss', tracks: [] });
+  const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: '', tracks: [] });
+  const [searchCriteria, setSearchCriteria] = useState<string>('');
 
   return (
     <>
+      <SearchBar setSearchCriteria={setSearchCriteria} />
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <Tracklist tracks={tracks} setPlaylist={setPlaylist} />
-        <Playlist playlist={playlist} setPlaylist={setPlaylist}/>
+        <SearchResults tracks={tracks} setPlaylist={setPlaylist} />
+        <Playlist playlist={playlist} setPlaylist={setPlaylist} />
       </div>
       <p className="text-center text-gray-400">Photo by <a className="underline underline-offset-4" href="https://unsplash.com/@marcelalaskoski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Marcela Laskoski</a> on <a className="underline underline-offset-4" href="https://unsplash.com/photos/selective-focus-silhouette-photography-of-man-playing-red-lighted-dj-terminal-YrtFlrLo2DQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
     </>

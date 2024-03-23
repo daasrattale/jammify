@@ -1,3 +1,3 @@
-export { Tracklist } from './Tracklist';
+export { SearchResults } from './SearchResults';
 export { Playlist } from './Playlist';
 export { Track } from './Track';
