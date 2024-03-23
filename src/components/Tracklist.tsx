@@ -1,24 +1,40 @@
-import { Track } from "../types/track.type"
-import { SongListItem } from "./../components";
+import { Dispatch, SetStateAction } from "react";
+import { TrackDetails } from "../types/track.type"
+import { Track } from "./../components";
+import { PlaylistDetails } from "../types/playlist.type";
 
 
 interface TracklistProps {
-     tracks: Track[];
+     tracks: TrackDetails[];
+     setPlaylist: Dispatch<SetStateAction<PlaylistDetails>>
 }
 
 
-export const Tracklist = ({ tracks }: TracklistProps) => {
+export const Tracklist = ({ setPlaylist, tracks }: TracklistProps) => {
+
+
+     const addToPlaylist = (track: TrackDetails) => {
+          // adding track to playlist
+          setPlaylist(prev => {
+               // checking if the tack is already on the playlist.
+               if (prev.tracks.find(t => t.id === track.id)) return prev;
+               return {
+                    ...prev,
+                    tracks: [...prev.tracks, track]
+               }
+          });
+     }
 
 
      return <>
           <div className="m-5 p-5 border rounded-xl border-gray-700 bg-black/70">
                <h1 className="text-xl mb-10">Results</h1>
                {
-                    tracks.map(song =>
-                         <SongListItem
-                              key={song.id}
-                              track={song}
-                              actionButton={<button className="ml-auto px-2 text-blue-400">+</button>}
+                    tracks.map(track =>
+                         <Track
+                              key={track.id}
+                              track={track}
+                              actionButton={<button onClick={() => addToPlaylist(track)} className="ml-auto px-2 text-blue-400">+</button>}
                          />
                     )
                }
