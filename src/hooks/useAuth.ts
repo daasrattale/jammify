@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 
-export const useSpotifyAuth = () => {
+export const useAuth = () => {
 
-     const CLIENT_ID = "4efbd344433949679004cf243d5ae948";
-     const REDIRECT_URI = "http://localhost:5173/"
-     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-     const RESPONSE_TYPE = "token";
+     
 
      const [token, setToken] = useState<string>('');
 
@@ -27,10 +24,7 @@ export const useSpotifyAuth = () => {
 
      return {
           token,
-          isLoggedIn: !!token,
-          CLIENT_ID, 
-          REDIRECT_URI,
-          AUTH_ENDPOINT, 
-          RESPONSE_TYPE
+          setToken,
+          isLoggedIn: !!token
      };
 }

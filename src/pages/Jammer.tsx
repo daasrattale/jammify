@@ -4,34 +4,10 @@ import { PlaylistDetails } from "../types/playlist.type";
 import { SearchBar } from "../components/SearchBar";
 import { Playlist, SearchResults } from "../components";
 
-// Todo: hardcoded to be removed.
-const hardcodedSongs: TrackDetails[] = [
-     {
-          id: 'id',
-          name: 'name',
-          artist: 'artist',
-          album: 'album',
-          uri: 'https://open.spotify.com/track/0y1QJc3SJVPKJ1OvFmFqe6?si=bbdd80f36d04433c'
-     },
-     {
-          id: 'id2',
-          name: 'name2',
-          artist: 'artist2',
-          album: 'album2',
-          uri: 'https://open.spotify.com/track/0y1QJc3SJVPKJ1OvFmFqe6?si=bbdd80f36d04433c'
-     },
-     {
-          id: 'id3',
-          name: 'name3',
-          artist: 'artist3',
-          album: 'album3',
-          uri: 'https://open.spotify.com/track/0y1QJc3SJVPKJ1OvFmFqe6?si=bbdd80f36d04433c'
-     }
-];
 
 export const Jammer = () => {
-     const [tracks, setTracks] = useState<TrackDetails[]>(hardcodedSongs);
-     const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: '', tracks: [] });
+     const [tracks, setTracks] = useState<TrackDetails[]>([]);
+     const [playlist, setPlaylist] = useState<PlaylistDetails>({ title: 'Playlist name', tracks: [] });
 
      return (
           <>

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useRef } from "react";
 import { TrackDetails } from "../types/track.type";
-import { useSpotifyAuth } from "../hooks/useSpotifyAuth";
+import { useAuth } from "../hooks/useAuth";
 import axios from "axios";
 
 interface SearchBarProps {
@@ -11,8 +11,7 @@ interface SearchBarProps {
 export const SearchBar = ({ setTracks }: SearchBarProps) => {
 
      const searchInputRef = useRef<HTMLInputElement>(null);
-
-     const { token } = useSpotifyAuth();
+     const { token } = useAuth();
 
      const search = async () => {
           let searchCriteria = searchInputRef.current!.value;
@@ -31,7 +30,7 @@ export const SearchBar = ({ setTracks }: SearchBarProps) => {
                     name: song.name,
                     artist: song.artists.map((i: any) => i.name).join(','),
                     album: song.album.name,
-                    uri: song.href
+                    uri: song.uri
                }))
           );     
      }
