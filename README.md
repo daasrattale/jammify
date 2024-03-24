@@ -1,8 +1,8 @@
 # Jammify
 
-This is a combination of my interest in react, Spotify API and my boredom.
+This is a combination of my interest in react, Spotify API and my boredom :))
 
-This is app can be used to compose new Spotify playlist on the user's account.
+This app can be used to compose new Spotify playlist on the user's account.
 
 ## Teckstack used
  - ReactJS (with typescript).
