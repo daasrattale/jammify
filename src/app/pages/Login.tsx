@@ -9,12 +9,9 @@ export const Login = () => {
      const RESPONSE_TYPE = "token";
      const SCOPE = "playlist-modify-private,user-library-read";
 
-     const { setToken, isLoggedIn } = useAuth();
+     const { isLoggedIn, logout } = useAuth();
 
-     const logout = () =>  {
-          setToken("")
-          window.localStorage.removeItem("token");
-     }
+
 
      return (
           <div className="flex flex-col min-h-screen justify-center items-center">
@@ -25,13 +22,13 @@ export const Login = () => {
                     ?
                     <div className="flex gap-2">
                          <button className="bg-purple-500 hover:bg-purple-700 px-6 py-2 rounded-lg mt-4">
-                         <Link to={"/jammer"} >Jammer Dashboard</Link>
-                    </button>
-                    <button 
-                    className="bg-red-500 hover:bg-red-700 px-6 py-2 rounded-lg mt-4"
-                    onClick={logout}>
-                         Log out
-                    </button>
+                              <Link to={"/jammer"} >Jammer Dashboard</Link>
+                         </button>
+                         <button
+                              className="bg-red-500 hover:bg-red-700 px-6 py-2 rounded-lg mt-4"
+                              onClick={logout}>
+                              Log out
+                         </button>
                     </div>
                     :
                     <button className="bg-green-500 hover:bg-green-700 px-6 py-2 rounded-lg mt-4">

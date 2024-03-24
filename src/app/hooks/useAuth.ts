@@ -18,9 +18,14 @@ export const useAuth = () => {
           setToken(token!)
      }, [])
 
+     const logout = () =>  {
+          setToken("")
+          window.localStorage.removeItem("token");
+     }
+
      return {
           token,
-          setToken,
-          isLoggedIn: !!token
+          isLoggedIn: !!token,
+          logout
      };
 }
