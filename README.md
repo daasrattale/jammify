@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# Jammify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a combination of my interest in react, Spotify API and my boredom.
 
-Currently, two official plugins are available:
+This is app can be used to compose new Spotify playlist on the user's account.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Teckstack used
+ - ReactJS (with typescript).
+ - React Router (with protected routes).
+ - Axios (HTTP client).
+ - TailwindCSS.
+ - SpotifyAPI.
+ - Vite (bundler).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Note
+This project serves only as a sample code and as result of exploring features. In other words, some parts (like axios error handling) are missing and are not focused on.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The token retrieved from the Spotiy endpoint is stored on the local storage which is not secure, a cookie will be better :))
