@@ -2,8 +2,7 @@ import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { PlaylistDetails } from "../types/playlist.type";
 import { TrackDetails } from "../types/track.type";
 import { Track } from "./../components";
-import { useAuth } from "../hooks/useAuth";
-import axios from "axios";
+import { useSpotify } from "../hooks/useSpotify";
 
 interface PlaylistProps {
      playlist: PlaylistDetails
@@ -15,7 +14,7 @@ export const Playlist = ({ playlist, setPlaylist }: PlaylistProps) => {
 
      const playlistTitleRef = useRef<HTMLInputElement>(null);
      const [isModifying, setModifying] = useState<Boolean>(false);
-     const { token } = useAuth();
+     const { createPlaylist, getUserId, addSongsToPlaylist } = useSpotify();
 
      const removeFromPlaylist = (track: TrackDetails) => {
           // removing track from playlist.
@@ -34,50 +33,11 @@ export const Playlist = ({ playlist, setPlaylist }: PlaylistProps) => {
 
      }
 
-     const getUserId = async () => {
-          const { data } = await axios.get("https://api.spotify.com/v1/me", {
-               headers: {
-                    Authorization: `Bearer ${token}`
-               },
-          })
-          return data.id;
-     }
-
-     const createPlaylist = async (userId: string) => {
-          const { data } = await axios.post(`https://api.spotify.com/v1/users/${userId}/playlists`,
-               {
-                    name: playlist.title,
-                    description: 'Jammify playlist',
-                    public: false
-               },
-               {
-                    headers: {
-                         Authorization: `Bearer ${token}`
-                    },
-               }
-          );
-          return data.id;
-     }
-
-
-     const addSongsToPlaylist = async (playlistId: string) => {
-
-          let body = {
-               uris: playlist.tracks.map(track => track.uri)
-          }
-          await axios.post(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
-               body,
-               {
-                    headers: {
-                         Authorization: `Bearer ${token}`
-                    },
-               })
-     }
-
      const savePlaylist = async () => {
           const userId: string = await getUserId();
-          const playlistId = await createPlaylist(userId);
-          addSongsToPlaylist(playlistId);
+          const playlistId = await createPlaylist(userId, playlist.title, 'Jammify PLaylist');
+          await addSongsToPlaylist(playlistId, playlist.tracks);
+          alert('Playlist created successfully :))');
      }
 
      return (

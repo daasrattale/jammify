@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useAuth = () => {
 
-     
-
      const [token, setToken] = useState<string>('');
-
 
      useEffect(()=>{
           const hash = window.location.hash;
