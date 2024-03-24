@@ -25,7 +25,7 @@ export const Login = () => {
                     ?
                     <div className="flex gap-2">
                          <button className="bg-purple-500 hover:bg-purple-700 px-6 py-2 rounded-lg mt-4">
-                         <Link to={"jammer"} >Jammer Dashboard</Link>
+                         <Link to={"/jammer"} >Jammer Dashboard</Link>
                     </button>
                     <button 
                     className="bg-red-500 hover:bg-red-700 px-6 py-2 rounded-lg mt-4"

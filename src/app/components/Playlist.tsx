@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { PlaylistDetails } from "../types/playlist.type";
 import { TrackDetails } from "../types/track.type";
-import { Track } from "./../components";
+import { Track } from ".";
 import { useSpotify } from "../hooks/useSpotify";
 
 interface PlaylistProps {
